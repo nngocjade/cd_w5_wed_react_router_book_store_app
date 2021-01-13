@@ -9,7 +9,7 @@ const PublicNavbar = () => {
     <div>
       <Navbar bg="light" expand="lg">
         <Navbar.Brand>
-          <img src={logo} alt="react" width="200px" />
+          <img src={logo} alt="react" width="100px" />
         </Navbar.Brand>
         <Nav className="mr-auto">
           <Nav.Link as={Link} to="/">
