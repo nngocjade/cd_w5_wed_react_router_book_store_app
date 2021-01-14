@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Button, Row } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
 // UI display of book cards
 // link card to book detail page
 const BookList = ({ books }) => {
@@ -7,10 +7,14 @@ const BookList = ({ books }) => {
   // console.log(`${BACKEND_API}/${books.imageLink}`);
   return (
     // custom css for book display flex
-    <Row>
+    <div className="books-wrapper">
       {books.map((book) => (
-        <Card style={{ width: "18rem" }} key={book.id}>
-          <Card.Img variant="top" src={`${BACKEND_API}/${book.imageLink}`} />
+        <Card className="m-2 card-wrapper" key={book.id}>
+          <Card.Img
+            className="card-image"
+            variant="center"
+            src={`${BACKEND_API}/${book.imageLink}`}
+          />
           <Card.Body>
             <Card.Title>{book.title}</Card.Title>
             <Card.Text>Author: {book.author}</Card.Text>
@@ -19,7 +23,7 @@ const BookList = ({ books }) => {
           </Card.Body>
         </Card>
       ))}
-    </Row>
+    </div>
   );
 };
 

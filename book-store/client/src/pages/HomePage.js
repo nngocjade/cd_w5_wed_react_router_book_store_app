@@ -58,9 +58,7 @@ const HomePage = () => {
         handleSearchFormSubmit={handleSearchFormSubmit}
       />
       <Pagination />
-      <Container>
-        <BookList books={books} />
-      </Container>
+      <BookList books={books} />
     </div>
   );
 };
