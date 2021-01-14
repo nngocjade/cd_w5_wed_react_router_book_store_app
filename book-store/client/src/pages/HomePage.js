@@ -13,15 +13,20 @@ const HomePage = () => {
   const limit = 10;
   const BACKEND_API = "http://localhost:5000";
   const pageNum = 1;
+  const [searchInput, setSearchInput] = useState();
+  const [query, setQuery] = useState();
 
   // fetch booklist data here
   useEffect(() => {
     async function fetchData() {
       setLoading(true);
       try {
-        const url = `${BACKEND_API}/books?_page=${pageNum}&_limit=${limit}`;
+        let url = `${BACKEND_API}/books?_page=${pageNum}&_limit=${limit}`;
         const response = await fetch(url);
         const data = await response.json();
+        if (query) {
+          url += `&q=${query}`;
+        }
         if (response.ok) {
           console.log(data);
           setBooks(data);
@@ -34,12 +39,25 @@ const HomePage = () => {
       setLoading(false);
     }
     fetchData();
-  }, []);
+  }, [query]);
+
+  const handleSearchInputChange = (e) => {
+    setSearchInput(e.target.value);
+  };
+  const handleSearchFormSubmit = (event) => {
+    event.preventDefault();
+    setQuery(searchInput);
+  };
+
+  console.log("handle form submit", handleSearchFormSubmit);
 
   return (
     <div>
       <h1>Home Page</h1>
-      <SearchForm />
+      <SearchForm
+        handleSearchInputChange={handleSearchInputChange}
+        handleSearchFormSubmit={handleSearchFormSubmit}
+      />
       <Pagination />
       <Container>
         {books.map((book) => (

@@ -1,11 +1,19 @@
 import React from "react";
 
-const SearchForm = ({ handleChange, searchTerm, handleClick }) => {
+const SearchForm = ({
+  handleSearchInputChange,
+  searchInput,
+  handleSearchFormSubmit,
+}) => {
   return (
-    <div className="search-form-wrapper">
-      <input type="text" onChange={handleChange} value={searchTerm} />
-      <button onClick={handleClick}>Search</button>
-    </div>
+    <form onSubmit={handleSearchFormSubmit}>
+      <input
+        type="text"
+        onChange={handleSearchInputChange}
+        value={searchInput}
+      />
+      <input type="submit" value="Search" />
+    </form>
   );
 };
 
