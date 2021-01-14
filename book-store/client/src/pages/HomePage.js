@@ -2,13 +2,17 @@ import React, { useEffect, useState } from "react";
 import SearchForm from "../components/SearchForm";
 import Pagination from "../components/Pagination";
 import BookCard from "../components/BookCard";
+import { Container } from "react-bootstrap";
+import CardDeck from "react-bootstrap/CardDeck";
 
 const HomePage = () => {
   const [errorMsg, setErrorMsg] = useState();
-  const [books, setBooks] = useState(new Array[]);
+  const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(false);
   const totalPageNum = 10;
   const limit = 10;
+  const BACKEND_API = "http://localhost:5000";
+  const pageNum = 1;
 
   // fetch booklist data here
   useEffect(() => {
@@ -37,14 +41,11 @@ const HomePage = () => {
       <h1>Home Page</h1>
       <SearchForm />
       <Pagination />
-      <div>
-      {books.map((book) => (
-        <BookCard book={book} />
-))
-}
-      </div>
-     
-      
+      <Container>
+        {books.map((book) => (
+          <BookCard book={book} />
+        ))}
+      </Container>
     </div>
   );
 };
