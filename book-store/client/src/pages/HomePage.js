@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import SearchForm from "../components/SearchForm";
 import Pagination from "../components/Pagination";
 import BookList from "../components/BookList";
-import { Container } from "react-bootstrap";
 
 const HomePage = () => {
   const [errorMsg, setErrorMsg] = useState();
@@ -46,9 +45,9 @@ const HomePage = () => {
     alert("search btn clicked");
     console.log("searchinput", searchInput);
   };
-  // const onPageChange()
-
-  // const
+  const onPageChange = (pageNumArg) => {
+    setPageNum(pageNumArg);
+  };
 
   return (
     <div>
@@ -57,7 +56,11 @@ const HomePage = () => {
         handleSearchInputChange={handleSearchInputChange}
         handleSearchFormSubmit={handleSearchFormSubmit}
       />
-      <Pagination />
+      <Pagination
+        totalItemsCount={totalPageNum * limit}
+        handlePageChange={onPageChange}
+        pageNum={pageNum}
+      />
       <BookList books={books} />
     </div>
   );

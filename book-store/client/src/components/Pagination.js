@@ -1,9 +1,16 @@
 import React from "react";
+import ReactPagination from "react-js-pagination";
 
-const Pagination = (handlePageChange) => {
+const Pagination = ({ handlePageChange, pageNum, totalItemsCount }) => {
+  console.log("totalItemsCount", totalItemsCount);
   return (
     <div>
-      <button onClick={() => handlePageChange}></button>
+      <ReactPagination
+        activePage={pageNum}
+        totalItemsCount={totalItemsCount}
+        onChange={handlePageChange}
+        itemsCountPerPage={10}
+      />
     </div>
   );
 };
