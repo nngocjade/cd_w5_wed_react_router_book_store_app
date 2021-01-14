@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import BookDetailPage from "./pages/BookDetailPage";
@@ -11,6 +11,7 @@ import { Container } from "react-bootstrap";
 
 function App() {
   const BACKEND_API = process.env.REACT_APP_BACKEND_API;
+
   return (
     <div className="App">
       <PublicNavbar />

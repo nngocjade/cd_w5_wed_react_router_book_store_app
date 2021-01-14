@@ -6,6 +6,7 @@ const SearchForm = ({
   handleSearchFormSubmit,
 }) => {
   return (
+    // onsubmit handles both enter and click btn
     <form onSubmit={handleSearchFormSubmit}>
       <input
         type="text"

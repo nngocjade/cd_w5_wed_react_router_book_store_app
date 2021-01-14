@@ -1,7 +1,11 @@
 import React from "react";
 
-const Pagination = () => {
-  return <div>pagination</div>;
+const Pagination = (handlePageChange) => {
+  return (
+    <div>
+      <button onClick={() => handlePageChange}></button>
+    </div>
+  );
 };
 
 export default Pagination;
