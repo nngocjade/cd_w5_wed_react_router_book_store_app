@@ -4,8 +4,8 @@ import Pagination from "../components/Pagination";
 import BookList from "../components/BookList";
 
 const HomePage = () => {
-  const [errorMsg, setErrorMsg] = useState();
   const [books, setBooks] = useState([]);
+  const [errorMsg, setErrorMsg] = useState();
   const [loading, setLoading] = useState(false);
   const totalPageNum = 10;
   const limit = 10;

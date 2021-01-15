@@ -2,7 +2,8 @@
   text-align: center;
 }
 
-.books-wrapper {
+.books-wrapper,
+.book-detail-wrapper {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
