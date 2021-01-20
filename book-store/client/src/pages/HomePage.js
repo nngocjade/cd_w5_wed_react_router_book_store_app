@@ -36,6 +36,7 @@ const HomePage = () => {
     fetchData();
   }, [query, pageNum]);
 
+  // HANDLE SEARCH INPUT AND BUTTON
   const handleSearchInputChange = (e) => {
     setSearchInput(e.target.value);
   };
@@ -51,7 +52,6 @@ const HomePage = () => {
 
   return (
     <div>
-      <h1>Home Page</h1>
       <SearchForm
         handleSearchInputChange={handleSearchInputChange}
         handleSearchFormSubmit={handleSearchFormSubmit}

@@ -11,7 +11,7 @@ import { Container } from "react-bootstrap";
 
 function App() {
   const BACKEND_API = process.env.REACT_APP_BACKEND_API;
-
+  console.log(BACKEND_API);
   return (
     <div className="App">
       <PublicNavbar />
